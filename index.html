@@ -1,0 +1,586 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Year 1 CEFR / KSSR & Penilaian Akhir Sesi Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        .card-hover {
+            transition: all 0.25s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+        }
+        .bouncing {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-indigo-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-2xl shadow-md flex items-center justify-center text-xl font-bold">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold text-indigo-900 leading-tight">Year 1 English Hub (CEFR & KSSR)</h1>
+                    <p class="text-xs text-slate-500 font-medium">Student Book 1 Vocabulary & Penilaian Akhir Sesi (PAS)</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <nav class="flex gap-1.5 overflow-x-auto pb-1 sm:pb-0 max-w-full">
+                <button onclick="switchModule('dashboard')" id="btn-dashboard" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-sm transition flex items-center gap-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-house"></i> Home
+                </button>
+                <button onclick="switchModule('numbers')" id="btn-numbers" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-indigo-700 hover:bg-indigo-50 border border-indigo-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-calculator"></i> Numbers 1-20
+                </button>
+                <button onclick="switchModule('phonics')" id="btn-phonics" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-indigo-700 hover:bg-indigo-50 border border-indigo-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-font"></i> Phonics A-Z
+                </button>
+                <button onclick="switchModule('vocabulary')" id="btn-vocabulary" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-indigo-700 hover:bg-indigo-50 border border-indigo-200 transition flex items-center gap-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-book-open"></i> Student Book Vocab
+                </button>
+                <button onclick="switchModule('exam')" id="btn-exam" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-rose-600 text-white shadow-sm transition flex items-center gap-1.5 whitespace-nowrap animate-pulse">
+                    <i class="fa-solid fa-file-pen"></i> PAS Exam Simulation
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-6 w-full">
+
+        <!-- DASHBOARD MODULE -->
+        <section id="module-dashboard" class="space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-indigo-100 text-center max-w-4xl mx-auto space-y-4">
+                <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">KSSR Semakan & CEFR Aligned</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-indigo-950">Master English Year 1 with Confidence!</h2>
+                <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">Explore exhaustive vocabulary sets straight from Student Book 1 (Superminds & KSSR Themes) covering numbers, phonics, school, family, toys, animals, and take realistic <strong>Penilaian Akhir Sesi (PAS)</strong> practice papers.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+                    <div onclick="switchModule('numbers')" class="bg-blue-50/70 hover:bg-blue-100 p-5 rounded-2xl cursor-pointer transition border border-blue-200 text-center card-hover">
+                        <div class="text-4xl mb-2">🔢</div>
+                        <h3 class="font-bold text-blue-900">Numbers 1 to 20</h3>
+                        <p class="text-xs text-slate-500 mt-1">Digits & exact spelling words</p>
+                    </div>
+                    <div onclick="switchModule('phonics')" class="bg-emerald-50/70 hover:bg-emerald-100 p-5 rounded-2xl cursor-pointer transition border border-emerald-200 text-center card-hover">
+                        <div class="text-4xl mb-2">🔤</div>
+                        <h3 class="font-bold text-emerald-900">Phonics A-Z</h3>
+                        <p class="text-xs text-slate-500 mt-1">Letter sounds & key vocab</p>
+                    </div>
+                    <div onclick="switchModule('vocabulary')" class="bg-amber-50/70 hover:bg-amber-100 p-5 rounded-2xl cursor-pointer transition border border-amber-200 text-center card-hover">
+                        <div class="text-4xl mb-2">🎒</div>
+                        <h3 class="font-bold text-amber-900">Student Book Themes</h3>
+                        <p class="text-xs text-slate-500 mt-1">School, Toys, Family, Animals</p>
+                    </div>
+                    <div onclick="switchModule('exam')" class="bg-rose-50/70 hover:bg-rose-100 p-5 rounded-2xl cursor-pointer transition border border-rose-200 text-center card-hover">
+                        <div class="text-4xl mb-2">📝</div>
+                        <h3 class="font-bold text-rose-900">PAS Exam Simulator</h3>
+                        <p class="text-xs text-slate-500 mt-1">End of session evaluation test</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUMBERS MODULE (1-20) -->
+        <section id="module-numbers" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-indigo-50 text-center max-w-2xl mx-auto">
+                <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Number Mastery</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-indigo-900 mt-2">Numbers 1 to 20 & Spelling</h2>
+                <p class="text-slate-600 text-sm mt-1">Click any card to hear pronunciation and count the icons.</p>
+            </div>
+            <div id="numbers-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- PHONICS MODULE (A-Z) -->
+        <section id="module-phonics" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-indigo-50 text-center max-w-2xl mx-auto">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Phonics & Alphabet</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-emerald-900 mt-2">A to Z Phonics Words</h2>
+                <p class="text-slate-600 text-sm mt-1">Click cards to listen to the letter sound and associated word.</p>
+            </div>
+            <div id="phonics-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- STUDENT BOOK VOCABULARY MODULE -->
+        <section id="module-vocabulary" class="hidden space-y-6">
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-indigo-50 text-center max-w-2xl mx-auto">
+                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Student Book 1 Topics</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-amber-900 mt-2">Expanded Vocabulary Database</h2>
+                <p class="text-slate-600 text-sm mt-1">Select a syllabus category below to practice all official Year 1 words.</p>
+            </div>
+
+            <!-- Theme Buttons -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button onclick="switchVocabTheme('school')" id="vbtn-school" class="px-4 py-2 rounded-xl font-bold bg-amber-600 text-white shadow transition">🏫 Classroom Objects</button>
+                <button onclick="switchVocabTheme('toys')" id="vbtn-toys" class="px-4 py-2 rounded-xl font-bold bg-white text-amber-700 hover:bg-amber-50 border border-amber-200 transition">🧸 Toys & Games</button>
+                <button onclick="switchVocabTheme('family')" id="vbtn-family" class="px-4 py-2 rounded-xl font-bold bg-white text-amber-700 hover:bg-amber-50 border border-amber-200 transition">👨‍👩‍👧 Family & Friends</button>
+                <button onclick="switchVocabTheme('colors')" id="vbtn-colors" class="px-4 py-2 rounded-xl font-bold bg-white text-amber-700 hover:bg-amber-50 border border-amber-200 transition">🎨 Colours & Shapes</button>
+                <button onclick="switchVocabTheme('animals')" id="vbtn-animals" class="px-4 py-2 rounded-xl font-bold bg-white text-amber-700 hover:bg-amber-50 border border-amber-200 transition">🐶 Animals & Pets</button>
+                <button onclick="switchVocabTheme('food')" id="vbtn-food" class="px-4 py-2 rounded-xl font-bold bg-white text-amber-700 hover:bg-amber-50 border border-amber-200 transition">🍎 Food & Drink</button>
+                <button onclick="switchVocabTheme('vegetables')" id="vbtn-vegetables" class="px-4 py-2 rounded-xl font-bold bg-white text-emerald-700 hover:bg-emerald-50 border border-emerald-200 transition">🥦 Vegetables</button>
+            </div>
+
+            <div id="vocab-cards-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- PAS EXAM SIMULATION MODULE -->
+        <section id="module-exam" class="hidden space-y-6 max-w-2xl mx-auto">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-rose-100 relative overflow-hidden">
+                <div class="flex justify-between items-center pb-4 border-b border-rose-50 mb-6">
+                    <div>
+                        <span class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Penilaian Akhir Sesi (PAS)</span>
+                        <h3 class="text-xl font-extrabold text-rose-950 mt-1">Year 1 English Summative Test</h3>
+                    </div>
+                    <div id="exam-timer" class="bg-rose-50 text-rose-700 px-3 py-1.5 rounded-xl font-bold text-sm">
+                        <i class="fa-solid fa-clock mr-1"></i> Question <span id="exam-current-num">1</span>/10
+                    </div>
+                </div>
+
+                <!-- Exam Question Container -->
+                <div id="exam-question-area" class="space-y-6">
+                    <div class="flex items-center space-x-4 bg-slate-50 p-4 rounded-2xl">
+                        <div id="exam-icon" class="text-5xl">🎒</div>
+                        <div>
+                            <span id="exam-section-badge" class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md">Part 1: Vocabulary</span>
+                            <h4 id="exam-q-text" class="text-lg font-bold text-slate-900 mt-1">What object is this?</h4>
+                        </div>
+                    </div>
+
+                    <div id="exam-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Exam Score Summary Screen -->
+                <div id="exam-results-area" class="hidden text-center py-8 space-y-4">
+                    <div class="text-6xl" id="exam-grade-icon">🏆</div>
+                    <h3 class="text-2xl font-extrabold text-indigo-950">Examination Completed!</h3>
+                    <p id="exam-score-desc" class="text-slate-600 text-base">You scored 10 out of 10 correctly.</p>
+                    <div id="exam-feedback-badge" class="inline-block bg-emerald-100 text-emerald-800 font-bold px-4 py-2 rounded-2xl text-sm">
+                        Grade: A (Cemerlang)
+                    </div>
+                    <div class="pt-4">
+                        <button onclick="startExamSession()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-6 py-3 rounded-2xl shadow transition">
+                            <i class="fa-solid fa-rotate-right mr-2"></i> Retake PAS Exam
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Message Modal for Feedback -->
+    <div id="message-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full text-center shadow-xl space-y-4">
+            <div id="modal-icon" class="text-5xl text-emerald-500">🎉</div>
+            <h4 id="modal-title" class="text-xl font-bold text-slate-800">Correct!</h4>
+            <p id="modal-text" class="text-slate-600 text-sm">Keep up the brilliant work.</p>
+            <button onclick="closeModal()" class="w-full bg-indigo-600 text-white font-bold py-2.5 rounded-xl shadow hover:bg-indigo-700 transition">Continue</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-6 text-center text-xs text-slate-500 border-t border-indigo-100 bg-white/50">
+        <p>English Year 1 CEFR / KSSR Hub &bull; Penilaian Akhir Sesi Simulator</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 1. Numbers Dataset (1-20)
+        const numbersData = [
+            { num: 1, word: "one", icon: "⭐" },
+            { num: 2, word: "two", icon: "🍎" },
+            { num: 3, word: "three", icon: "🎈" },
+            { num: 4, word: "four", icon: "🐱" },
+            { num: 5, word: "five", icon: "🚗" },
+            { num: 6, word: "six", icon: "⚽" },
+            { num: 7, word: "seven", icon: "🐟" },
+            { num: 8, word: "eight", icon: "🌸" },
+            { num: 9, word: "nine", icon: "🍭" },
+            { num: 10, word: "ten", icon: "🌟" },
+            { num: 11, word: "eleven", icon: "🐸" },
+            { num: 12, word: "twelve", icon: "🚀" },
+            { num: 13, word: "thirteen", icon: "🍕" },
+            { num: 14, word: "fourteen", icon: "🐝" },
+            { num: 15, word: "fifteen", icon: "🦋" },
+            { num: 16, word: "sixteen", icon: "🍄" },
+            { num: 17, word: "seventeen", icon: "🍦" },
+            { num: 18, word: "eighteen", icon: "🐳" },
+            { num: 19, word: "nineteen", icon: "🌻" },
+            { num: 20, word: "twenty", icon: "🏀" }
+        ];
+
+        // 2. Phonics A-Z
+        const phonicsData = [
+            { letter: "A", word: "Apple", icon: "🍎" },
+            { letter: "B", word: "Ball", icon: "⚽" },
+            { letter: "C", word: "Cat", icon: "🐱" },
+            { letter: "D", word: "Dog", icon: "🐶" },
+            { letter: "E", word: "Egg", icon: "🥚" },
+            { letter: "F", word: "Fish", icon: "🐟" },
+            { letter: "G", word: "Goat", icon: "🐐" },
+            { letter: "H", word: "Hat", icon: "👒" },
+            { letter: "I", word: "Iguana", icon: "🦎" },
+            { letter: "J", word: "Jug", icon: "🏺" },
+            { letter: "K", word: "Kite", icon: "🪁" },
+            { letter: "L", word: "Lion", icon: "🦁" },
+            { letter: "M", word: "Monkey", icon: "🐵" },
+            { letter: "N", word: "Nest", icon: "🪺" },
+            { letter: "O", word: "Orange", icon: "🍊" },
+            { letter: "P", word: "Pen", icon: "🖊️" },
+            { letter: "Q", word: "Queen", icon: "👑" },
+            { letter: "R", word: "Rabbit", icon: "🐰" },
+            { letter: "S", word: "Sun", icon: "☀️" },
+            { letter: "T", word: "Train", icon: "🚆" },
+            { letter: "U", word: "Umbrella", icon: "☂️" },
+            { letter: "V", word: "Violin", icon: "🎻" },
+            { letter: "W", word: "Watch", icon: "⌚" },
+            { letter: "X", word: "Xylophone", icon: "🎹" },
+            { letter: "Y", word: "Yo-yo", icon: "🪀" },
+            { letter: "Z", word: "Zebra", icon: "🦓" }
+        ];
+
+        // 3. Expanded Student Book 1 Vocabulary Database
+        const vocabThemes = {
+            school: [
+                { word: "Bag", icon: "🎒", desc: "School bag" },
+                { word: "Book", icon: "📖", desc: "Reading book" },
+                { word: "Pen", icon: "🖊️", desc: "Writing pen" },
+                { word: "Pencil", icon: "✏️", desc: "Drawing pencil" },
+                { word: "Rubber", icon: "🧹", desc: "Eraser" },
+                { word: "Ruler", icon: "📏", desc: "Measuring ruler" },
+                { word: "Case", icon: "👝", desc: "Pencil case" },
+                { word: "Desk", icon: "🪑", desc: "School desk" }
+            ],
+            toys: [
+                { word: "Train", icon: "🚂", desc: "Toy train" },
+                { word: "Doll", icon: "🎎", desc: "Doll toy" },
+                { word: "Ball", icon: "⚽", desc: "Play ball" },
+                { word: "Car", icon: "🚗", desc: "Toy car" },
+                { word: "Bike", icon: "🚲", desc: "Bicycle" },
+                { word: "Computer", icon: "💻", desc: "Computer game" },
+                { word: "Monster", icon: "👾", desc: "Monster toy" },
+                { word: "Kite", icon: "🪁", desc: "Flying kite" }
+            ],
+            family: [
+                { word: "Mother", icon: "👩", desc: "Mummy" },
+                { word: "Father", icon: "👨", desc: "Daddy" },
+                { word: "Brother", icon: "👦", desc: "Boy sibling" },
+                { word: "Sister", icon: "👧", desc: "Girl sibling" },
+                { word: "Grandma", icon: "👵", desc: "Grandmother" },
+                { word: "Grandpa", icon: "👴", desc: "Grandfather" },
+                { word: "Friend", icon: "🤝", desc: "Playmate" },
+                { word: "Baby", icon: "👶", desc: "Little baby" }
+            ],
+            colors: [
+                { word: "Red", icon: "🔴", desc: "Red color" },
+                { word: "Blue", icon: "🔵", desc: "Blue color" },
+                { word: "Green", icon: "🟢", desc: "Green color" },
+                { word: "Yellow", icon: "🟡", desc: "Yellow color" },
+                { word: "Circle", icon: "⚪", desc: "Round shape" },
+                { word: "Square", icon: "🟩", desc: "4-sided shape" },
+                { word: "Triangle", icon: "🔺", desc: "3-sided shape" },
+                { word: "Rectangle", icon: "🟧", desc: "Long shape" }
+            ],
+            animals: [
+                { word: "Cat", icon: "🐱", desc: "Meow pet" },
+                { word: "Dog", icon: "🐶", desc: "Barking dog" },
+                { word: "Bird", icon: "🐦", desc: "Flying bird" },
+                { word: "Fish", icon: "🐠", desc: "Water fish" },
+                { word: "Duck", icon: "🦆", desc: "Swimming duck" },
+                { word: "Frog", icon: "🐸", desc: "Jumping frog" },
+                { word: "Horse", icon: "🐴", desc: "Farm horse" },
+                { word: "Spider", icon: "🕷️", desc: "Small spider" }
+            ],
+            food: [
+                { word: "Apple", icon: "🍎", desc: "Red apple" },
+                { word: "Banana", icon: "🍌", desc: "Yellow banana" },
+                { word: "Cake", icon: "🎂", desc: "Birthday cake" },
+                { word: "Milk", icon: "🥛", desc: "Fresh milk" },
+                { word: "Pizza", icon: "🍕", desc: "Cheese pizza" },
+                { word: "Burger", icon: "🍔", desc: "Hamburger" },
+                { word: "Ice cream", icon: "🍦", desc: "Sweet treat" },
+                { word: "Water", icon: "💧", desc: "Drinking water" }
+            ],
+            vegetables: [
+                { word: "Carrot", icon: "🥕", desc: "Orange vegetable" },
+                { word: "Tomato", icon: "🍅", desc: "Red vegetable" },
+                { word: "Potato", icon: "🥔", desc: "Brown vegetable" },
+                { word: "Broccoli", icon: "🥦", desc: "Green vegetable" },
+                { word: "Corn", icon: "🌽", desc: "Sweet corn" },
+                { word: "Cucumber", icon: "🥒", desc: "Green cucumber" },
+                { word: "Onion", icon: "🧅", desc: "Cooking onion" },
+                { word: "Salad", icon: "🥗", desc: "Fresh greens" }
+            ]
+        };
+
+        // Speech Synthesis Helper
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(text);
+                u.rate = 0.85;
+                u.pitch = 1.1;
+                u.lang = 'en-GB';
+                window.speechSynthesis.speak(u);
+            }
+        }
+
+        // Render Numbers
+        function renderNumbers() {
+            const grid = document.getElementById('numbers-grid');
+            grid.innerHTML = '';
+            numbersData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-3xl p-4 shadow-sm border border-indigo-50 card-hover cursor-pointer flex flex-col items-center justify-center text-center';
+                card.onclick = () => {
+                    speak(`${item.num}. ${item.word}`);
+                    animateCard(card);
+                };
+                card.innerHTML = `
+                    <div class="text-3xl mb-1">${item.icon}</div>
+                    <div class="text-3xl font-extrabold text-indigo-900">${item.num}</div>
+                    <div class="text-xs font-bold text-indigo-600 uppercase tracking-wide mt-1">${item.word}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Phonics
+        function renderPhonics() {
+            const grid = document.getElementById('phonics-grid');
+            grid.innerHTML = '';
+            phonicsData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-3xl p-4 shadow-sm border border-emerald-50 card-hover cursor-pointer flex flex-col items-center justify-center text-center';
+                card.onclick = () => {
+                    speak(`${item.letter}. ${item.word}`);
+                    animateCard(card);
+                };
+                card.innerHTML = `
+                    <div class="text-2xl mb-1">${item.icon}</div>
+                    <div class="text-2xl font-extrabold text-emerald-900">${item.letter} <span class="text-sm font-normal text-emerald-500">(${item.letter.toLowerCase()})</span></div>
+                    <div class="text-xs font-bold text-emerald-600 uppercase tracking-wide mt-1">${item.word}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Vocabulary Theme
+        function renderVocabTheme(themeKey) {
+            const grid = document.getElementById('vocab-cards-grid');
+            grid.innerHTML = '';
+            vocabThemes[themeKey].forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-3xl p-4 shadow-sm border border-amber-50 card-hover cursor-pointer flex flex-col items-center justify-center text-center';
+                card.onclick = () => {
+                    speak(item.word);
+                    animateCard(card);
+                };
+                card.innerHTML = `
+                    <div class="text-4xl mb-2">${item.icon}</div>
+                    <div class="text-base font-extrabold text-amber-900">${item.word}</div>
+                    <div class="text-xs text-slate-400 mt-1">${item.desc}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function switchVocabTheme(key) {
+            ['school', 'toys', 'family', 'colors', 'animals', 'food', 'vegetables'].forEach(k => {
+                const btn = document.getElementById(`vbtn-${k}`);
+                if (k === key) {
+                    if (k === 'vegetables') {
+                        btn.className = "px-4 py-2 rounded-xl font-bold bg-emerald-600 text-white shadow transition";
+                    } else {
+                        btn.className = "px-4 py-2 rounded-xl font-bold bg-amber-600 text-white shadow transition";
+                    }
+                } else {
+                    if (k === 'vegetables') {
+                        btn.className = "px-4 py-2 rounded-xl font-bold bg-white text-emerald-700 hover:bg-emerald-50 border border-emerald-200 transition";
+                    } else {
+                        btn.className = "px-4 py-2 rounded-xl font-bold bg-white text-amber-700 hover:bg-amber-50 border border-amber-200 transition";
+                    }
+                }
+            });
+            renderVocabTheme(key);
+        }
+
+        function animateCard(el) {
+            el.classList.add('scale-95', 'bg-indigo-50');
+            setTimeout(() => el.classList.remove('scale-95', 'bg-indigo-50'), 200);
+        }
+
+        // Module Switcher
+        function switchModule(mod) {
+            ['dashboard', 'numbers', 'phonics', 'vocabulary', 'exam'].forEach(m => {
+                document.getElementById(`module-${m}`).classList.add('hidden');
+                const btn = document.getElementById(`btn-${m}`);
+                if (btn) {
+                    if (m === 'exam') {
+                        btn.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-rose-700 hover:bg-rose-50 border border-rose-200 transition flex items-center gap-1.5 whitespace-nowrap";
+                    } else {
+                        btn.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-indigo-700 hover:bg-indigo-50 border border-indigo-200 transition flex items-center gap-1.5 whitespace-nowrap";
+                    }
+                }
+            });
+
+            document.getElementById(`module-${mod}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${mod}`);
+            if (activeBtn) {
+                if (mod === 'exam') {
+                    activeBtn.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-rose-600 text-white shadow-sm transition flex items-center gap-1.5 whitespace-nowrap animate-pulse";
+                    startExamSession();
+                } else {
+                    activeBtn.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-sm transition flex items-center gap-1.5 whitespace-nowrap";
+                }
+            }
+        }
+
+        // PAS Exam Simulation State
+        let examQuestions = [];
+        let currentExamIndex = 0;
+        let examScore = 0;
+
+        function startExamSession() {
+            currentExamIndex = 0;
+            examScore = 0;
+
+            // Generate 10 mixed exam questions from pool
+            let pool = [
+                { q: "What is the spelling for number 12?", correct: "twelve", icon: "🚀", section: "Part 1: Numbers" },
+                { q: "Which word starts with letter 'C'?", correct: "Cat", icon: "🐱", section: "Part 2: Phonics" },
+                { q: "What classroom object is used for writing?", correct: "Pen", icon: "🖊️", section: "Part 3: School" },
+                { q: "Which family member is mummy?", correct: "Mother", icon: "👩", section: "Part 4: Family" },
+                { q: "What toy is this?", correct: "Train", icon: "🚂", section: "Part 5: Toys" },
+                { q: "What color or shape is a circle?", correct: "Circle", icon: "⚪", section: "Part 6: Shapes" },
+                { q: "Which animal says meow or lives as pet?", correct: "Cat", icon: "🐱", section: "Part 7: Animals" },
+                { q: "What fruit is red and sweet?", correct: "Apple", icon: "🍎", section: "Part 8: Food" },
+                { q: "What is the spelling for number 20?", correct: "twenty", icon: "🏀", section: "Part 9: Numbers" },
+                { q: "Which word starts with letter 'Q'?", correct: "Queen", icon: "👑", section: "Part 10: Phonics" }
+            ];
+
+            examQuestions = pool.sort(() => 0.5 - Math.random());
+            document.getElementById('exam-question-area').classList.remove('hidden');
+            document.getElementById('exam-results-area').classList.add('hidden');
+            loadExamQuestion();
+        }
+
+        function loadExamQuestion() {
+            if (currentExamIndex >= examQuestions.length) {
+                // Exam Finished
+                document.getElementById('exam-question-area').classList.add('hidden');
+                document.getElementById('exam-results-area').classList.remove('hidden');
+                document.getElementById('exam-score-desc').innerText = `You scored ${examScore} out of ${examQuestions.length} correctly.`;
+                
+                let gradeBadge = document.getElementById('exam-feedback-badge');
+                if (examScore >= 9) {
+                    gradeBadge.className = "inline-block bg-emerald-100 text-emerald-800 font-bold px-4 py-2 rounded-2xl text-sm";
+                    gradeBadge.innerText = "Grade: A (Cemerlang - Excellent!)";
+                } else if (examScore >= 7) {
+                    gradeBadge.className = "inline-block bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-2xl text-sm";
+                    gradeBadge.innerText = "Grade: B (Kepujian - Good Job!)";
+                } else {
+                    gradeBadge.className = "inline-block bg-amber-100 text-amber-800 font-bold px-4 py-2 rounded-2xl text-sm";
+                    gradeBadge.innerText = "Grade: C (Cuba Lagi - Keep Practicing!)";
+                }
+                speak(`Exam completed! You scored ${examScore} out of 10`);
+                return;
+            }
+
+            const q = examQuestions[currentExamIndex];
+            document.getElementById('exam-current-num').innerText = currentExamIndex + 1;
+            document.getElementById('exam-section-badge').innerText = q.section;
+            document.getElementById('exam-icon').innerText = q.icon;
+            document.getElementById('exam-q-text').innerText = q.q;
+            speak(q.q);
+
+            // Generate options
+            let options = [q.correct];
+            let distractorPool = ["Cat", "Dog", "Apple", "Train", "twelve", "twenty", "Pen", "Book", "Mother", "Father", "Queen", "Circle"];
+            while (options.length < 4) {
+                let randomOpt = distractorPool[Math.floor(Math.random() * distractorPool.length)];
+                if (!options.includes(randomOpt)) {
+                    options.push(randomOpt);
+                }
+            }
+            options.sort(() => 0.5 - Math.random());
+
+            const optionsContainer = document.getElementById('exam-options');
+            optionsContainer.innerHTML = '';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'py-3.5 px-4 bg-rose-50/70 hover:bg-rose-100 text-rose-950 font-bold rounded-2xl border border-rose-100 transition text-base';
+                btn.innerText = opt;
+                btn.onclick = () => checkExamAnswer(opt, q.correct);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkExamAnswer(selected, correct) {
+            if (selected === correct) {
+                examScore++;
+                showModal('Correct! 🎉', 'Well done on this exam question.', 'fa-circle-check', 'text-emerald-500');
+                speak('Correct!');
+            } else {
+                showModal('Incorrect 💡', `The correct answer was "${correct}".`, 'fa-circle-xmark', 'text-rose-500');
+                speak(`Incorrect. It is ${correct}`);
+            }
+            currentExamIndex++;
+        }
+
+        // Modal Controls
+        function showModal(title, text, iconClass, iconColorClass) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = text;
+            document.getElementById('modal-icon').innerHTML = `<i class="fa-solid ${iconClass} ${iconColorClass}"></i>`;
+            document.getElementById('message-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('message-modal').classList.add('hidden');
+            if (!document.getElementById('module-exam').classList.contains('hidden')) {
+                loadExamQuestion();
+            }
+        }
+
+        // Window Onload Initialization
+        window.onload = function() {
+            renderNumbers();
+            renderPhonics();
+            renderVocabTheme('school');
+        };
+    </script>
+</body>
+</html>
+```
